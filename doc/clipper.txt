@@ -207,7 +207,7 @@ nvim-clipper is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
 HISTORY                                                       *clipper-history*
 
-0.1 (15 February 2025)
+0.1 (17 February 2025)
 
 - Initial release, based on vim-clipper
   (https://github.com/wincent/vim-clipper).
