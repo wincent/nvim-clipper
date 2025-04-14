@@ -29,7 +29,7 @@ end
 
 local function clip()
   local config = require('wincent.clipper.private.config')
-  local contents = vim.fn.getreg('0')
+  local contents = vim.fn.getreg('')
   if type(config.invocation) == 'string' then
     vim.fn.system(config.invocation, contents)
   else
