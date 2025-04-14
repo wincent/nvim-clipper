@@ -31,6 +31,12 @@ local config = setmetatable(storage, {
           else
             self[key] = value
           end
+        elseif key == 'operators' then
+          if type(value) ~= 'table' or not vim.islist(value) then
+            warn('ignoring non-list value for `operators`')
+          else
+            self[key] = value
+          end
         elseif key == 'port' then
           if type(value) ~= 'number' then
             warn('ignoring non-number value for `port`')

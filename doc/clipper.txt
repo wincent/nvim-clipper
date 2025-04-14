@@ -99,6 +99,13 @@ If set, |clipper.setup.invocation| takes precedence and the values provided
 via |clipper.setup.address|, |clipper.setup.port|, and |clipper.setup.socket|
 are ignored.
 
+                                                      *clipper.setup.operators*
+                                                 list (default: { 'd', 'y' })
+
+Operators after which nvim-clipper should pass text to Clipper. The default of
+`{ 'd', 'y' }` will pass text after |deleting| or a |yank|. Other operators that
+may be added to the list include |c|.
+
                                                            *clipper.setup.port*
                                                        number (default: 8377)
 
@@ -116,7 +123,8 @@ FUNCTIONS                                                   *clipper-functions*
 
                                                                *clipper.clip()*
 
-Sends the last-yanked text to Clipper. Example: >
+Sends the last-yanked or last-deleted text (specifically, the contents of the
+unnamed register: |quotequote|) to Clipper. Example: >
 
     :lua require('wincent.clipper.clip')()
 <

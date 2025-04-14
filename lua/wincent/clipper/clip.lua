@@ -27,8 +27,21 @@ local function executable()
   end
 end
 
+local function has_value(list, value)
+  for _, candidate in ipairs(list) do
+    if candidate == value then
+      return true
+    end
+  end
+  return false
+end
+
+
 local function clip()
   local config = require('wincent.clipper.private.config')
+  if vim.v.event.operator and not has_value(config.operators or { 'd', 'y' }, vim.v.event.operator) then
+    return
+  end
   local contents = vim.fn.getreg('')
   if type(config.invocation) == 'string' then
     vim.fn.system(config.invocation, contents)
